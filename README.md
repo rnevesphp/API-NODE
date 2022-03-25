@@ -2,6 +2,6 @@
 
 ### TECHNOLOGIES
 
-Node JS
-Javascript
-Express
+- Node JS
+- Javascript
+- Express
