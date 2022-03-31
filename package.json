@@ -13,5 +13,8 @@
     "debug": "^4.3.4",
     "express": "^4.17.3",
     "http": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
