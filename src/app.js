@@ -1,47 +1,40 @@
-'use strict' 
+'use strict'
 
 /**
  * importamos o express
  */
-const express = require('express'); 
+const express = require('express');
 const bodyParser = require('body-parser');
 const { urlencoded } = require('express');
 
 /**
  * declaramos o app e a o router (aplicação principal e rota)
- */
-const app = express(); 
-const router = express.Router(); 
+*/
+const app = express();
+const router = express.Router();
 
 /**
- * bodyParse => pacote do node 
- */
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: false })); 
+ * importamos as rotas externas
+*/
+const indexRoutes = require('./API-Routes/index-route');
+const productRoute = require('./API-Routes/product-route');
 
 /**
- * criando a rota
- */
-const route = router.get('/' , (req, res, next) => {
-   res.status(200).send({
-      title: "Node Store API", 
-      version: "0.0.2"
-   }); 
-}); 
+ * bodyParse.json() => converte todo o conteúdo em  JSON
+ * bodyParse.urlencoded() => se usa para codificar todas as url's usadas exemplo: 
+ * ao digitar um 'espaço' na url ele converte o caractere espaço em '%20' . 
+*/
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-/**
- * rota para criar ou enviar dados ao bando de dados
- */
-const create = router.post('/' , (req, res, next) => {
-   res.status(200).send(req.body); 
-}); 
 /**
  * atribuimos a rota à aplicação. 
- */
-app.use('/',route); 
-app.use('/products' , create)
+*/
+app.use('/', indexRoutes);
+app.use('/products', productRoute);
+
 
 /**
  * Exportar a aplicação. 
- */
+*/
 module.exports = app; 
