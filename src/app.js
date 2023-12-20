@@ -16,8 +16,8 @@ const router = express.Router();
 /**
  * importamos as rotas externas
 */
-const indexRoutes = require('./API-Routes/index-route');
-const productRoute = require('./API-Routes/product-route');
+const indexRoutes = require('./routes/index-route');
+const productRoute = require('./routes/product-route');
 
 /**
  * bodyParse.json() => converte todo o conteúdo em  JSON

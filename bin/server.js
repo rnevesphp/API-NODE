@@ -5,7 +5,7 @@
  * obs.: todos os módulos importados que não possuem rotas 
  * são extraídos diretamente da pasta node_modules.
  */
- const app = require('../src/app');
+const app = require('../src/app');
 const http = require('http'); 
 const debug = require('debug')('nodeAPI:server');
 
@@ -25,7 +25,7 @@ const port = normalizePort(process.env.PORT || '3000');
  * 
  * server -> usamos o modulo http para criar um servidor e usando também a app
  * que veio do Express usando o modelo MVC. 
- * router -> dada uma rota ao usuário para acessar nossa aplicação.
+ * router -> server para proporcionar rotas ao usuário para acessar nossa aplicação.
  */
 const server = http.createServer(app);
 
@@ -37,7 +37,7 @@ const server = http.createServer(app);
  server.listen(port); 
  server.on('error', onError)
  server.on('Listening ', onListening); 
- console.log("API RODANDO NA PORTA " + port); 
+ console.log(`API RODANDO NA PORTA ${port}`); 
 
 /**
  * função usada para normalizar a porta do servidor 

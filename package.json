@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev" : "nodemon ./bin/server.js" , 
     "start": "node ./bin/server.js"
   },
   "keywords": [],

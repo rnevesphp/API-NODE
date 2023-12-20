@@ -2,18 +2,22 @@
 
 const express = require('express');
 const router = express.Router();
+var products = require('../data/products.data'); 
 
+router.get('/list' , (req, res) => {
+   res.send(products);
+})
 /**
- * rota para criar ou enviar dados ao bando de dados
+ * rota para criar ou enviar dados ao banco de dados
  */
-router.post('/', (req, res, next) => {
+router.post('/', (req, res) => {
    res.status(200).send(req.body);
 });
 
 /**
  * rota para edição de um elemento usando o id como parametro pela URL
  */
-router.put('/:id', (req, res, next) => {
+router.put('/:id', (req, res) => {
    const id = req.params.id; // recuperar um parametro pela url
    res.status(201).send({
       id: id,
@@ -21,8 +25,7 @@ router.put('/:id', (req, res, next) => {
    });
 });
 
-
-router.delete('/', (req, res, next) => {
+router.delete('/', (req, res) => {
    res.status(200).send(req.body);
 });
 
