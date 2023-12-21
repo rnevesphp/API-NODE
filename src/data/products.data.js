@@ -1,6 +1,4 @@
-const crypto = require('crypto'); 
-
-
+const crypto = require('crypto');
 
 var products = [
     {
@@ -33,4 +31,4 @@ var products = [
     }
 ]
 
-module.exports = products; 
+module.exports = products;

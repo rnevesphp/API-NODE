@@ -10,7 +10,7 @@ router.get('/list' , (req, res) => {
 /**
  * rota para criar ou enviar dados ao banco de dados
  */
-router.post('/', (req, res) => {
+router.post('/add', (req, res) => {
    res.status(200).send(req.body);
 });
 
@@ -25,7 +25,7 @@ router.put('/:id', (req, res) => {
    });
 });
 
-router.delete('/', (req, res) => {
+router.delete('/delete/:id', (req, res) => {
    res.status(200).send(req.body);
 });
 

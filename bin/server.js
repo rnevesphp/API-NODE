@@ -12,7 +12,6 @@ const debug = require('debug')('nodeAPI:server');
 /**
  * Criamos e indicamos uma porta para normalizar 
  * no nosso servidor. 
- * 
  * app -> é a arquitetura web 
  * port -> chma a função 
  * app.set -> usando algumas instruções do express configuramos a 
@@ -22,7 +21,6 @@ const port = normalizePort(process.env.PORT || '3000');
 
 /**
  * Já com a API instanciada damos passo para criar o servidor 
- * 
  * server -> usamos o modulo http para criar um servidor e usando também a app
  * que veio do Express usando o modelo MVC. 
  * router -> server para proporcionar rotas ao usuário para acessar nossa aplicação.
@@ -57,9 +55,7 @@ function onError(error) {
    if (error.syncall != 'listen') { 
       throw error; 
    }
-   const bind = typeof port === 'string' ?
-      'Pipe ' + port : 
-      'Port ' + port ; 
+   const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port ; 
 
    switch(error.code) { 
       case 'EACCES': 
@@ -77,8 +73,6 @@ function onError(error) {
 
 function onListening() { 
    const addr = server.address(); 
-   const bind = typeof addr === 'string'
-   ? 'Pipe ' + addr 
-   : 'Port ' + addr.port; 
+   const bind = typeof addr === 'string' ? 'Pipe ' + addr : 'Port ' + addr.port; 
    debug('Listening on ' + bind); 
 }
