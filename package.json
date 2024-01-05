@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "nodemon ./bin/server.js" , 
+    "dev" : "node --watch --no-warnings ./bin/server.js" , 
     "start": "node ./bin/server.js"
   },
   "keywords": [],

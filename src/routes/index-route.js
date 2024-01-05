@@ -4,14 +4,14 @@ const express = require('express');
 const router = express.Router();
 
 /**
- * criando a rota principal ou root
+ * criando a rota principal ou root/raiz
  */
 
-const route = router.get('/', (req, res) => {
+const ApiMainRoute = router.get('/', (req, res) => {
    res.status(200).send({
       title: "Node Store API",
-      version: "0.0.3"
+      version: "0.1.0"
    });
 });
 
-module.exports = router;   
+module.exports = ApiMainRoute;    
