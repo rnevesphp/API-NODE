@@ -6,33 +6,14 @@ var products = require('../data/products.data');
 
 const controller = require('../controllers/product.controller'); 
 
-
+// rota que lista os produtos em uma lista 
 router.get('/' , (req, res) => {
    res.send(products);
 })
-/**
- * rota para criar ou enviar dados ao banco de dados
- */
- router.post('/add' , (req, res) => {
-   res.status(200)
-   res.send(req.body);
-});
 
-/**
- * rota para edição de um elemento usando o id como parametro pela URL
- */
- router.put('/:id', (req, res) => {
-   const id = req.params.id; // recuperar um parametro pela url
-   res.status(200)
-   res.send({
-      id: id,
-      item: req.body
-   });
-});
-
-router.delete('/delete/:id', (req, res) => {
-   res.status(200)
-   res.send(req.body);
-});
+// rotas para acessar os metodos crud usando um controlador
+router.post('/add', controller.post);
+router.put('/:id', controller.put);
+router.delete('/delete/:id',controller.del);
 
 module.exports = router; 

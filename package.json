@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "node --watch --no-warnings ./bin/server.js" , 
+    "dev": "node --watch --no-warnings ./bin/server.js",
     "start": "node ./bin/server.js"
   },
   "keywords": [],
@@ -13,7 +13,8 @@
   "dependencies": {
     "debug": "^4.3.4",
     "express": "^4.17.3",
-    "http": "^0.0.1-security"
+    "http": "^0.0.1-security",
+    "mongodb": "^6.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

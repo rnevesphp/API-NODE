@@ -3,9 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-/**
- * criando a rota principal ou root/raiz
- */
+// criando a rota principal ou root/raiz
 
 const ApiMainRoute = router.get('/', (req, res) => {
    res.status(200).send({
