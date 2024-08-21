@@ -1,8 +1,11 @@
 'use strict'
- 
+
+const Product = require('../models/product');
+const mongoose = require("mongoose");
+
 exports.post = (req , res) => {
     res.status(200)
-    res.send(console.log(req.body)); 
+    res.send(req.body); 
 };
 
 exports.put = (req , res) => {
@@ -14,7 +17,7 @@ exports.put = (req , res) => {
    });
 }; 
 
-exports.del = (req , res) => {
+exports.delete = (req , res) => {
    res.status(200)
    res.send(req.body);
 }; 

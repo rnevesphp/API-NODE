@@ -1,41 +1,27 @@
 'use strict'
 
-/**
- * importamos o express
- */
 const express = require('express');
 const bodyParser = require('body-parser');
 const { urlencoded } = require('express');
+const mongoose = require('mongoose')
 
-/**
- * declaramos o app e a o router (aplicação principal e rota)
-*/
+/* usar para variaveis de entorno */
+/* require('dotenv').config(); */
+/* const dbURL = process.env.DB_URL; */
+/* mongoose.connect(dbURL);  */
+
 const app = express();
 const router  = express.Router();
 
-/**
- * importamos as rotas externas
-*/
+mongoose.connect('mongodb+srv://admin:trokoWrvdLKvsQHX@cluster0.s5s27mc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
 
-// mainRoute é a rota principal 
-const mainRoute = require('./routes/index-route');
+const indexRoute = require('./routes/index-route');
 const productRoutes = require('./routes/product-route');
 
-/**
- * bodyParse.json() => converte todo o conteúdo em  JSON
- * bodyParse.urlencoded() => se usa para codificar todas as url's usadas exemplo: 
- * ao digitar um 'espaço' na url ele converte o caractere espaço em '%20' . 
-*/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-/**
- * atribuimos a rota à aplicação. 
-*/
-app.use('/', mainRoute);
+app.use('/', indexRoute);
 app.use('/products', productRoutes); 
 
-/**
- * Exportar a aplicação. 
-*/
 module.exports = app; 

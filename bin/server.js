@@ -1,45 +1,17 @@
 'use strict' 
 
-/**
- * importamos os modulos para criação do servidor, 
- * obs.: todos os módulos importados que não possuem rotas 
- * são extraídos diretamente da pasta node_modules.
- */
 const app = require('../src/app');
 const http = require('http'); 
 const debug = require('debug')('nodeAPI:server');
 
-/**
- * Criamos e indicamos uma porta para normalizar 
- * no nosso servidor. 
- * app -> é a arquitetura web 
- * port -> chma a função 
- * app.set -> usando algumas instruções do express configuramos a 
- * porta do servidor usando o 'set'. 
- */
 const port = normalizePort(process.env.PORT || '3000'); 
-
-/**
- * Já com a API instanciada damos passo para criar o servidor 
- * server -> usamos o modulo http para criar um servidor e usando também a app
- * que veio do Express usando o modelo MVC. 
- * router -> server para proporcionar rotas ao usuário para acessar nossa aplicação.
- */
 const server = http.createServer(app);
 
-/**
- * normalizar a porta do servidor ou seja fazer ele escutar constantemente 
- * uma porta. 
- * e um console.log para ver o funcionamento correto. 
- */
- server.listen(port); 
- server.on('error', onError)
- server.on('Listening ', onListening); 
- console.log(`API RODANDO NA PORTA ${port}`); 
+server.listen(port); 
+server.on('error', onError)
+server.on('Listening ', onListening); 
+console.log(`API RODANDO NA PORTA ${port}`); 
 
-/**
- * função usada para normalizar a porta do servidor 
- */
 function normalizePort(val) { 
    const port = parseInt(val, 10); 
    if (isNaN(port)){ 
